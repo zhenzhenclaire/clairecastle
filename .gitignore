@@ -5,10 +5,3 @@
 .settings
 target
 *.log*
-news-center/target
-news-common/target
-news-ctr/target
-news-engine/target
-news-index/target
-pom.xml
-src/
