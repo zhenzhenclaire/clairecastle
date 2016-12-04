@@ -1,0 +1,169 @@
+/* ---------------------------------------------------------------------------- */
+/* -----------------------------Main Components-------------------------------- */
+/* ---------------------------------------------------------------------------- */
+.cd-slider-wrapper {
+  position: relative;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  z-index: 1;
+}
+
+@media only screen and (min-width: 768px) {
+  .cd-slider-wrapper {
+    margin: 2em auto;
+    padding: 50px;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-slider-wrapper::after {
+    /* quotation mark visible */
+    display: block;
+  }
+}
+.cd-slider {
+  color: #ffffff;
+  text-align: center;
+}
+.cd-slider::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.cd-slider > li {
+  position: absolute;
+  opacity: 0;
+}
+.cd-slider > li:first-child {
+  position: relative;
+  opacity: 1;
+}
+.cd-slider p {
+  font-family: "Georgia", serif;
+  font-style: italic;
+  line-height: 1.4;
+  margin-bottom: 1em;
+  padding: 0 14px;
+}
+@media only screen and (min-width: 768px) {
+  .cd-slider p {
+    font-size: 22px;
+    font-size: 1.375rem;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-slider p {
+    font-size: 26px;
+    font-size: 1.625rem;
+    line-height: 1.6;
+  }
+}
+
+ .cd-item .cd-item-info {
+  display: inline-block;
+  vertical-align: middle;
+  
+}
+.cd-item .cd-item-info h2{
+  font-size: 32px;
+  margin: 10px 0;
+  font-family: 'Courgette', cursive;
+  color: #FFE384;
+}
+@media only screen and (min-width: 768px) {
+  .cd-item img {
+    width: 180px;
+	height: 180px;
+  }
+  .cd-item .cd-item-info {
+    line-height: 1.4;
+  }
+  .cd-item .cd-item-info li:first-child {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+  .cd-item .cd-item-info li:last-child {
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+}
+
+.flex-direction-nav li {
+  position: absolute;
+  height: 100%;
+  width: 40px;
+  top: 0;
+}
+.flex-direction-nav li:first-child {
+  left: 0;
+}
+.flex-direction-nav li:last-child {
+  right: 0;
+}
+.flex-direction-nav li a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  /* image replacement */
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.flex-direction-nav li a::before, .flex-direction-nav li a::after {
+  /* left and right arrows in css only */
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 40px;
+  background-color: #ffffff;
+}
+.flex-direction-nav li a::before {
+  -webkit-transform: translateY(-55px) rotate(45deg);
+  -moz-transform: translateY(-55px) rotate(45deg);
+  -ms-transform: translateY(-55px) rotate(45deg);
+  -o-transform: translateY(-55px) rotate(45deg);
+  transform: translateY(-55px) rotate(45deg);
+}
+.flex-direction-nav li a::after {
+  -webkit-transform: translateY(-27px) rotate(-45deg);
+  -moz-transform: translateY(-27px) rotate(-45deg);
+  -ms-transform: translateY(-27px) rotate(-45deg);
+  -o-transform: translateY(-27px) rotate(-45deg);
+  transform: translateY(-27px) rotate(-45deg);
+}
+.flex-direction-nav li:last-child a::before {
+  -webkit-transform: translateY(-55px) rotate(-45deg);
+  -moz-transform: translateY(-55px) rotate(-45deg);
+  -ms-transform: translateY(-55px) rotate(-45deg);
+  -o-transform: translateY(-55px) rotate(-45deg);
+  transform: translateY(-55px) rotate(-45deg);
+}
+.flex-direction-nav li:last-child a::after {
+  -webkit-transform: translateY(-27px) rotate(45deg);
+  -moz-transform: translateY(-27px) rotate(45deg);
+  -ms-transform: translateY(-27px) rotate(45deg);
+  -o-transform: translateY(-27px) rotate(45deg);
+  transform: translateY(-27px) rotate(45deg);
+}
+@media only screen and (min-width: 768px) {
+  .flex-direction-nav li {
+    width: 50px;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .flex-direction-nav li a::before, .flex-direction-nav li a::after {
+    background-color: #5e5e63;
+    -webkit-transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+  }
+  .flex-direction-nav li a:hover::before, .flex-direction-nav li a:hover::after {
+    background-color: #ffffff;
+  }
+}

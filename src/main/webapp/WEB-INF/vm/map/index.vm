@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Free Bootstrap Themes by 365Bootstrap dot com - Free Responsive Html5 Templates">
+    <meta name="author" content="">
+
+    <title>HOME</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/slider.css"><!--  Resource style -->
+    <link rel="stylesheet" href="/css/shake.css"> <!-- Resource style -->
+    <!-- Custom Fonts -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!-- /////////////////////////////////////////Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="/images/logo.png" class="hidden-xs" alt="">
+                <h3 class="visible-xs">Chameleon</h3>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="/">Home</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="/animal/">Animal</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="/botany/">Botany</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="/landscape/">Landscape</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="/map/">Map</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="/user/">Login</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<!-- Navigation -->
+
+
+<!-- /////////////////////////////////////////Content -->
+<div id="page-content" class="index-page">
+
+    <!-- ////////////Content Box 04 -->
+    <!-- ////////////Content Box 04 -->
+    <section id="nav-collection" class="box-content box-4 box-style">
+        <center><div class="container" id="allmap" style="width:90%;height:500px"></div></center>
+    </section>
+
+
+</div>
+
+<!-- /////////////////////////////////////////Footer -->
+<footer>
+    <div class="grass"><img src="/images/grass-background.png" /></div>
+    <div class="chameleon"><img src="/images/black-reptile.png" /></div>
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://www.cssmoban.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></div>
+                <div class="col-md-6">
+                    <ul class="list-inline">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer -->
+
+
+
+<!-- jQuery -->
+<script src="/js/jquery-2.1.1.js"></script>
+<script src="/js/jquery.flexslider-min.js"></script>
+<script src="/js/main.js"></script> <!-- Resource jQuery -->
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/agency.js"></script>
+
+<!-- Animated Top -->
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/classie.js"></script>
+<script src="/js/cbpAnimatedHeader.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Cgu7QK4086GVqXzxsStjwNLzvqu33DWG"></script>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");    // 创建Map实例
+    map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+    map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+    map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+</script>
+
+</body>
+</html>
