@@ -98,7 +98,7 @@
                 </div>
                 <div class="col-md-8">
                     <div id="contact-form">
-                        <form name="form1" method="post" action="contact.php">
+                        <form name="form1" method="post" action="/user/ureg">
                             <div class="row">
                                 <div class="col-md-3">
                                     <h3>Username:</h3>
@@ -106,7 +106,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
 
-                                        <input type="text" class="form-control input-lg" name="name" id="name" required="required" />
+                                        <input type="text" class="form-control input-lg" name="username" id="username" required="required" />
                                     </div>
                                 </div>
 
@@ -118,7 +118,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
 
-                                        <input type="text" class="form-control input-lg" name="name" id="name" required="required" />
+                                        <input type="text" class="form-control input-lg" name="email" id="email" required="required" />
                                     </div>
                                 </div>
 
@@ -130,7 +130,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
 
-                                        <input type="password" class="form-control input-lg" name="name" id="name" required="required" />
+                                        <input type="password" class="form-control input-lg" name="passwd" id="passwd" required="required" />
                                     </div>
                                 </div>
 
@@ -142,7 +142,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
 
-                                        <input type="password" class="form-control input-lg" name="name" id="name" required="required" />
+                                        <input type="password" class="form-control input-lg" name="repasswd" id="repasswd" required="required" />
                                     </div>
                                 </div>
 

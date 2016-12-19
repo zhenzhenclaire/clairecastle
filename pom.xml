@@ -8,7 +8,6 @@
     <artifactId>castle</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-
     <name>clairecastle</name>
     <packaging>war</packaging>
 
@@ -18,6 +17,8 @@
         <java.version>1.7</java.version>
         <org.apache.maven.plugins.compiler.version>2.3.2</org.apache.maven.plugins.compiler.version>
         <skipTests>true</skipTests>
+        <slf4j.version>1.7.7</slf4j.version>
+        <log4j.version>1.2.14</log4j.version>
 
         <!-- dependencies -->
         <org.springframework.version>3.1.4.RELEASE</org.springframework.version>
@@ -41,6 +42,8 @@
         <jedis.version>2.2.0</jedis.version>
         <org.apache.curator.version>2.6.0</org.apache.curator.version>
         <velocity.version>1.6.4</velocity.version>
+        <commons-dbcp.version>1.4</commons-dbcp.version>
+        <org.joda.version>2.2</org.joda.version>
 
     </properties>
 
@@ -53,11 +56,6 @@
                 <groupId>com.google.code.gson</groupId>
                 <artifactId>gson</artifactId>
                 <version>2.7</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-httpclient</groupId>
-                <artifactId>commons-httpclient</artifactId>
-                <version>3.0</version>
             </dependency>
 
             <dependency>
@@ -72,6 +70,24 @@
                 <artifactId>spring-beans</artifactId>
                 <version>${org.springframework.version}</version>
                 <scope>compile</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+                <scope>runtime</scope>
             </dependency>
 
             <dependency>
@@ -257,6 +273,17 @@
                 <artifactId>fastjson</artifactId>
                 <version>${com.alibaba.fastjson.version}</version>
             </dependency>
+            <dependency>
+                <groupId>commons-dbcp</groupId>
+                <artifactId>commons-dbcp</artifactId>
+                <version>${commons-dbcp.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${org.joda.version}</version>
+            </dependency>
 
 
 
@@ -265,8 +292,59 @@
 
     <dependencies>
         <dependency>
-            <groupId>commons-httpclient</groupId>
-            <artifactId>commons-httpclient</artifactId>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -508,14 +586,9 @@
             <properties>
                 <mysql.jdbc.driverClassName>com.mysql.jdbc.Driver</mysql.jdbc.driverClassName>
                 <mysql.jdbc.url>
-                    <![CDATA[jdbc:mysql://localhost:3306/news_rec?useUnicode=true&amp;characterEncoding=UTF-8]]></mysql.jdbc.url>
+                    <![CDATA[jdbc:mysql://localhost:3306/clairecastle?useUnicode=true&amp;characterEncoding=UTF-8]]></mysql.jdbc.url>
                 <mysql.jdbc.username>root</mysql.jdbc.username>
                 <mysql.jdbc.password>root</mysql.jdbc.password>
-                <deploy.base>/opt/www</deploy.base>
-                <deploy.java.home>/usr/local/jdk1.6.0_45/bin</deploy.java.home>
-                <deploy.home>/opt/www/web</deploy.home>
-                <delpoy.log.home>/opt/www/logs/monitor</delpoy.log.home>
-                <deploy.hosts>10.16.34.174</deploy.hosts>
             </properties>
         </profile>
         <profile>
@@ -529,7 +602,7 @@
             <properties>
                 <mysql.jdbc.driverClassName>com.mysql.jdbc.Driver</mysql.jdbc.driverClassName>
                 <mysql.jdbc.url>
-                    <![CDATA[jdbc:mysql://localhost:3306/news_rec?useUnicode=true&amp;characterEncoding=UTF-8]]></mysql.jdbc.url>
+                    <![CDATA[jdbc:mysql://localhost:3306/clairecastle?useUnicode=true&amp;characterEncoding=UTF-8]]></mysql.jdbc.url>
                 <mysql.jdbc.username>root</mysql.jdbc.username>
                 <mysql.jdbc.password>root</mysql.jdbc.password>
             </properties>

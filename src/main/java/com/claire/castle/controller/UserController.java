@@ -1,6 +1,9 @@
 package com.claire.castle.controller;
 
+import com.claire.castle.db.model.User;
+import com.claire.castle.model.AuthedUser;
 import com.claire.castle.service.UserService;
+import com.claire.castle.utils.CookieUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +40,21 @@ public class UserController {
     }
 
     @RequestMapping("/ureg")
-    public String userUReg(Model model, HttpServletRequest request, HttpServletResponse response) {
-        return "/user/reg";
+    public String userUReg(Model model,
+                           HttpServletRequest request, HttpServletResponse response,
+                           @RequestParam(value = "username") String username,
+                           @RequestParam(value = "passwd") String password,
+                           @RequestParam(value="email") String email) {
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("reg info username {} passwd {} email {}",username,password,email);
+        }
+        User userInfo = userService.getUserByNameAndPwd(username, password);
+        if (userInfo != null) {
+            model.addAttribute("msg", "用户名已经存在");
+            return "/user/reg";
+        }
+        userService.addUser(username, password,email);
+        return "redirect:/user/";
     }
 
 
@@ -47,22 +63,22 @@ public class UserController {
 //                            HttpServletRequest request, HttpServletResponse response,
 //                            @RequestParam(value = "username") String username,
 //                            @RequestParam(value = "passwd") String password) {
-////        AuthedUser user = CookieUtils.getLoginUser(request);
-////        if (user != null) {
-////            return "redirect:/";
-////        }
-////        User userInfo = userService.getUserByNameAndPwd(username, password);
-////        if (userInfo != null) {
-////            user = new AuthedUser();
-////            user.setId(userInfo.getId());
-////            user.setName(username);
-////            user.setLevel(userInfo.getLevel());
-////            user.setTime(System.currentTimeMillis());
-////            CookieUtils.setLoginCookie(response, user);
-////            return "redirect:/";
-////        } else {
-////            model.addAttribute("msg", "用户名或者密码不对！");
-////        }
+//        AuthedUser user = CookieUtils.getLoginUser(request);
+//        if (user != null) {
+//            return "redirect:/";
+//        }
+//        User userInfo = userService.getUserByNameAndPwd(username, password);
+//        if (userInfo != null) {
+//            user = new AuthedUser();
+//            user.setId(userInfo.getId());
+//            user.setName(username);
+//            user.setLevel(user.getLevel());
+//            user.setTime(System.currentTimeMillis());
+//            CookieUtils.setLoginCookie(response, user);
+//            return "redirect:/";
+//        } else {
+//            model.addAttribute("msg", "用户名或者密码不对！");
+//        }
 //        return "/user/login";
 //    }
 

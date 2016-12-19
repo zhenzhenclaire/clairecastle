@@ -1,0 +1,52 @@
+<!DOCTYPE log4j:configuration PUBLIC
+        "-//APACHE//DTD LOG4J 1.2//EN" "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration>
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd/HH:mm:ss.SSS/zzz} %5p [%l]:%m%n"/>
+        </layout>
+    </appender>
+    <appender name="systemAppender" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="encoding" value="UTF-8"/>
+        <param name="file" value="./log/clairecastle.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd/HH:mm:ss.SSS/zzz} %5p [%l]:%m%n"/>
+        </layout>
+    </appender>
+
+    <logger name="org.apache">
+        <level value="error" />
+        <appender-ref ref="systemAppender" />
+    </logger >
+
+    <logger name="com.mchange.v2">
+        <level value="error" />
+        <appender-ref ref="systemAppender" />
+    </logger >
+
+    <logger name="org.quartz">
+        <level value="error" />
+        <appender-ref ref="systemAppender" />
+    </logger >
+
+    <logger name="org.springframework">
+        <level value="error" />
+        <appender-ref ref="systemAppender" />
+    </logger >
+    <logger name="com.mtarget.cache.jcs">
+        <level value="error" />
+        <appender-ref ref="systemAppender" />
+    </logger>
+    <logger name="com.alibaba.dubbo">
+        <level value="error"/>
+        <appender-ref ref="systemAppender"/>
+    </logger>
+    <root>
+        <level value="DEBUG"/>
+        <appender-ref ref="console" />
+    </root>
+</log4j:configuration>
