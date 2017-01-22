@@ -1,8 +1,6 @@
 package com.claire.castle.db.model;
 
-/**
- * Created by zhongnanhuang209074 on 2017/1/2.
- */
+
 public class Animal {
 
     private int id;
