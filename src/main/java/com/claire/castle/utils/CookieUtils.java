@@ -15,10 +15,15 @@ public class CookieUtils {
     public static void addCookie(HttpServletResponse response, String name, String value, int maxAge, String domain,
                                  String path) {
         Cookie cookie = new Cookie(name, value);
-        cookie.setDomain(domain);
+        if (domain != null) {
+            cookie.setDomain(domain);
+        }
         cookie.setPath(path);
         cookie.setMaxAge(maxAge);
         response.addCookie(cookie);
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("response cookies is {}", cookie);
+        }
     }
 
     public static void addMemCookie(HttpServletResponse response, String name, String value, String domain, String path) {
@@ -39,22 +44,27 @@ public class CookieUtils {
             return null;
         }
         for (Cookie cookie : cookies) {
+            LOGGER.info("cookies info : name = {} ,value = {}", cookie.getName(),cookie.getValue());
             if (cookie.getName().equals(name)) {
                 LOGGER.info("get cookies for name = {}", name);
                 return cookie.getValue();
             }
+
         }
         return null;
     }
 
     public static final String LOGIN_COOKIE_ENCRYPT_KEY = "ruOu$x*JS*^hxV6jFA25";
-    private static final String LOGIN_COOKIE_NAME = "rec-user";
-    private static final String DOMAIN = "";
+    private static final String LOGIN_COOKIE_NAME = "user";
+    private static final String DOMAIN = null;
     private static final String PATH = "/";
 
     public static void setLoginCookie(HttpServletResponse response, AuthedUser user) {
         try {
             String v = DES.encrypt(user.toJson(), LOGIN_COOKIE_ENCRYPT_KEY);
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("user cookies is {}",v);
+            }
             addMemCookie(response, LOGIN_COOKIE_NAME, v, DOMAIN, PATH);
         } catch (Exception e) {
             LOGGER.warn("set login cookie failed! user = {} error = {}", user.toJson(), e);
@@ -69,6 +79,7 @@ public class CookieUtils {
     public static AuthedUser getLoginUser(HttpServletRequest request) {
         try {
             String v = getCookieValue(request, LOGIN_COOKIE_NAME);
+            LOGGER.debug("cookies value is {}",v);
             if (v == null) {
                 return null;
             }

@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -29,10 +30,10 @@ public class UserController {
         return "/user/login";
     }
 
-    @RequestMapping("/login")
-    public String userLogin(Model model, HttpServletRequest request, HttpServletResponse response) {
-        return "/user/login";
-    }
+//    @RequestMapping("/login")
+//    public String userLogin(Model model, HttpServletRequest request, HttpServletResponse response) {
+//        return "/user/login";
+//    }
 
     @RequestMapping("/reg")
     public String userReg(Model model, HttpServletRequest request, HttpServletResponse response) {
@@ -58,28 +59,30 @@ public class UserController {
     }
 
 
-//    @RequestMapping(value = "/login")
-//    public String userLogin(Model model,
-//                            HttpServletRequest request, HttpServletResponse response,
-//                            @RequestParam(value = "username") String username,
-//                            @RequestParam(value = "passwd") String password) {
-//        AuthedUser user = CookieUtils.getLoginUser(request);
-//        if (user != null) {
-//            return "redirect:/";
-//        }
-//        User userInfo = userService.getUserByNameAndPwd(username, password);
-//        if (userInfo != null) {
-//            user = new AuthedUser();
-//            user.setId(userInfo.getId());
-//            user.setName(username);
-//            user.setLevel(user.getLevel());
-//            user.setTime(System.currentTimeMillis());
-//            CookieUtils.setLoginCookie(response, user);
-//            return "redirect:/";
-//        } else {
-//            model.addAttribute("msg", "用户名或者密码不对！");
-//        }
-//        return "/user/login";
-//    }
+    @RequestMapping(value = "/login")
+    public String userLogin(Model model,
+                            HttpServletRequest request, HttpServletResponse response,
+                            @RequestParam(value = "username") String username,
+                            @RequestParam(value = "passwd") String password) {
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("login info username {} passwd {}",username,password);
+        }
+        User userInfo = userService.getUserByNameAndPwd(username, password);
+        if (userInfo != null) {
+            AuthedUser user = new AuthedUser();
+            user.setId(userInfo.getId());
+            user.setName(username);
+            user.setLevel(user.getLevel());
+            user.setTime(System.currentTimeMillis());
+            CookieUtils.setLoginCookie(response, user);
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("login success user info username {} passwd {},user {}",username,password,user.toJson());
+            }
+            return "redirect:/";
+        } else {
+            model.addAttribute("msg", "用户名或者密码不对！");
+        }
+        return "/user/login";
+    }
 
 }

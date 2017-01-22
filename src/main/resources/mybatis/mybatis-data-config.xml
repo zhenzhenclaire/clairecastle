@@ -17,6 +17,7 @@
 
     <typeAliases>
         <typeAlias type="com.claire.castle.db.model.User" alias="user"/>
+        <typeAlias type="com.claire.castle.db.model.Animal" alias="animal"/>
     </typeAliases>
 
 </configuration>

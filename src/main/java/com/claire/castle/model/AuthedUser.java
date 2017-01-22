@@ -106,4 +106,14 @@ public class AuthedUser {
             return this.value;
         }
     }
+
+    @Override
+    public String toString() {
+        return "AuthedUser{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", time=" + time +
+                ", level=" + level +
+                '}';
+    }
 }

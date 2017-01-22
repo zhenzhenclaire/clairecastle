@@ -52,29 +52,20 @@
                     <a href="#page-top"></a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="/">Home</a>
+                    <a class="page-scroll" href="#nav-welcome">Welcome</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="/animal/">Animal</a>
+                    <a class="page-scroll" href="#nav-news">News</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="/botany/">Botany</a>
+                    <a class="page-scroll" href="#nav-evolution">Evolution</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="/landscape/">Landscape</a>
+                    <a class="page-scroll" href="#nav-collection">Collection</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="/map/">Map</a>
+                    <a class="page-scroll" href="#nav-contact">Contact</a>
                 </li>
-                #if($user)
-                    <li>
-                        <a class="page-scroll" href="/user/">${user.name}</a>
-                    </li>
-                #else
-                    <li>
-                        <a class="page-scroll" href="/user/">Login</a>
-                    </li>
-                #end
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -84,67 +75,44 @@
 <!-- Navigation -->
 
 <!-- /////////////////////////////////////////Header -->
-<header>
+<header style="height: 550px;">
     <div class="col-lg-12">
         <div class="clearfix">
             <div class="cd-slider-wrapper cd-container">
-                <ul class="cd-slider">
-
-##
+                <ul >
                     <li>
                         <div class="cd-item">
                             <div class="ch-grid">
-                                <div class="ch-item" style="background-image: url(images/snakes.jpg);">
-
+                                <div class="ch-item ch-img-1">
                                 </div>
                             </div>
                             <ul class="cd-item-info">
-                                <li><h2 class="shake shake-constant hover-stop">SNAKES</h2></li>
+                                <li><h2 >claire</h2></li>
                             </ul>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <a href="#" class="btn btn-1">MORE</a>
-                    </li>
+                        <div class="cd-item">
 
+                            <p style="width:80%;padding-left:10%">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </br></br></br>
+                                followers:10	shushubi:100
+                            </p>
+
+                        </div>
+
+
+                    </li>
                 </ul> <!-- cd-testimonials -->
             </div> <!-- cd-testimonials-wrapper -->
         </div>
     </div>
 </header>
-
-<!-- /////////////////////////////////////////Content -->
+<!-- Header -->
 <div id="page-content" class="index-page">
 
     <!-- ////////////Content Box 02 -->
-    <section id="nav-news" class="box-content box-2 box-style">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="contact-form">
-                        <form name="form1" method="post" action="contact.php">
 
-
-                            <div class="row">
-                                <div class="col-md-10">
-                                    <div class="form-group">
-											<textarea name="message" id="message" class="form-control" rows="4" cols="25" required="required"
-                                                      placeholder="publish news"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <center><button type="submit" class="btn btn-5" name="btnContactUs" id="btnContactUs">
-                                            Publish</button></center>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ////////////Content Box 01 -->
     <!-- ////////////Content Box 01 -->
     <section id="nav-welcome" class="box-content box-1">
         <div class="container">
@@ -251,12 +219,12 @@
         </div>
     </section>
 
+
+
 </div>
 
 <!-- /////////////////////////////////////////Footer -->
 <footer>
-    <div class="grass"><img src="images/grass-background.png" /></div>
-    <div class="chameleon"><img src="images/black-reptile.png" /></div>
     <div class="copyright">
         <div class="container">
             <div class="row">

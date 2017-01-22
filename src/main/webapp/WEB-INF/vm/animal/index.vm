@@ -92,9 +92,23 @@
                 </div>
             </div>
             <div class="row">
+                #if($animals)
+                    #foreach(${animal} in ${animals})
+                        <div class="col-md-3">
+                            <div class="ch-grid">
+                                <div class="ch-item" style="background-image: url(${animal.cover});">
+                                    <div class="ch-info">
+                                        <h3 class="shake">${animal.name}</h3>
+                                        <p>by ${animal.publisher} <a href="#">More Detail</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    #end
+                #end
                 <div class="col-md-3">
                     <div class="ch-grid">
-                        <div class="ch-item ch-img-1">
+                        <div class="ch-item" style="background-image: url(/images/snakes.jpg);">
                             <div class="ch-info">
                                 <h3 class="shake">Green Anaconda</h3>
                                 <p>by Angela Duncan <a href="#">More Detail</a></p>
@@ -132,8 +146,49 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
+
+
+                <div class="col-md-3">
+                    <div class="ch-grid">
+                        <div class="ch-item" style="background-image: url(/images/snakes.jpg);">
+                            <div class="ch-info">
+                                <h3 class="shake">Green Anaconda</h3>
+                                <p>by Angela Duncan <a href="#">More Detail</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="ch-grid">
+                        <div class="ch-item ch-img-5">
+                            <div class="ch-info">
+                                <h3 class="shake">Bush Viper</h3>
+                                <p>by Angela Duncan <a href="#">More Detail</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="ch-grid">
+                        <div class="ch-item ch-img-6">
+                            <div class="ch-info">
+                                <h3 class="shake">Bearded Dragon</h3>
+                                <p>by Angela Duncan <a href="#">More Detail</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="ch-grid">
+                        <div class="ch-item ch-img-7">
+                            <div class="ch-info">
+                                <h3 class="shake">Basilisk Lizard</h3>
+                                <p>by Angela Duncan <a href="#">More Detail</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-md-3">
                     <div class="ch-grid">
                         <div class="ch-item ch-img-8">
